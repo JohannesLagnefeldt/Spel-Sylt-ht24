@@ -40,6 +40,7 @@ public class PlayerCharacter : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             print("interacted");
+            animator.SetBool("Carrying Tray", true);
         }
 
         if (NearestInteractable())
@@ -47,7 +48,7 @@ public class PlayerCharacter : MonoBehaviour
             NearestInteractable().Highlight();
         }
 
-        animator.SetBool("Carrying Tray", false);
+        
         animator.SetFloat("Move Speed", rigidBody.velocity.magnitude);
 
 
