@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerCharacter : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
-    private List<Interactable> interactables;
+    private List<Interactable> interactables = new List<Interactable>();
 
     [SerializeField] private float responseivnes;
     [SerializeField] private float speed;
@@ -28,7 +28,11 @@ public class PlayerCharacter : MonoBehaviour
             print("interacted");
         }
 
-        NearestInteractable().Highlight();
+        if (NearestInteractable())
+        {
+            NearestInteractable().Highlight();
+        }
+        
     }
 
     private Interactable NearestInteractable()
