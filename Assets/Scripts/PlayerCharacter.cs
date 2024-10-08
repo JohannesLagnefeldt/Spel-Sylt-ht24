@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ using UnityEngine;
 public class PlayerCharacter : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
     private List<Interactable> interactables = new List<Interactable>();
 
     [SerializeField] private float responseivnes;
@@ -15,6 +18,8 @@ public class PlayerCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
@@ -23,6 +28,15 @@ public class PlayerCharacter : MonoBehaviour
     {
         Vector2 move_input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         rigidBody.velocity = Vector2.Lerp(rigidBody.velocity, speed * move_input.normalized, responseivnes * Time.deltaTime);
+        if (rigidBody.velocity.x > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (rigidBody.velocity.x < 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+
         if (Input.GetButtonDown("Jump"))
         {
             print("interacted");
@@ -32,7 +46,11 @@ public class PlayerCharacter : MonoBehaviour
         {
             NearestInteractable().Highlight();
         }
-        
+
+        animator.SetBool("Carrying Tray", false);
+        animator.SetFloat("Move Speed", rigidBody.velocity.magnitude);
+
+
     }
 
     private Interactable NearestInteractable()
@@ -67,5 +85,6 @@ public class PlayerCharacter : MonoBehaviour
             interactables.Remove(collision.GetComponent<Interactable>());
         }
     }
+
 }
 
