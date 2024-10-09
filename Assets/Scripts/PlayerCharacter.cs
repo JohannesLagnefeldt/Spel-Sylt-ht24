@@ -1,16 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
 
 public class PlayerCharacter : MonoBehaviour
 {
+    public enum Item
+    {
+        PASTRY,
+        PLATE,
+        CUP_EMPTY,
+        CUP_BLACK,
+        CUP_MILK,
+        CUP_SKIMMED
+    }
+
     private Rigidbody2D rigidBody;
     public Animator animator;
     private SpriteRenderer spriteRenderer;
     private List<Interactable> interactables = new List<Interactable>();
+
+    public List<Item> inventory = new List<Item>(2);
 
     [SerializeField] private float responseivnes;
     [SerializeField] private float speed;
@@ -21,6 +35,7 @@ public class PlayerCharacter : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
+        print (inventory.Any() != true);
     }
 
     // Update is called once per frame
