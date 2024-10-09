@@ -8,7 +8,7 @@ using UnityEngine;
 public class PlayerCharacter : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
-    private Animator animator;
+    public Animator animator;
     private SpriteRenderer spriteRenderer;
     private List<Interactable> interactables = new List<Interactable>();
 
@@ -37,15 +37,13 @@ public class PlayerCharacter : MonoBehaviour
             spriteRenderer.flipX = false;
         }
 
-        if (Input.GetButtonDown("Jump"))
-        {
-            print("interacted");
-            animator.SetBool("Carrying Tray", true);
-        }
-
         if (NearestInteractable())
         {
             NearestInteractable().Highlight();
+            if (Input.GetButtonDown("Jump"))
+            {
+                NearestInteractable().Interact(this);
+            }
         }
 
         
