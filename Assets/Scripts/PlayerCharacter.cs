@@ -81,7 +81,7 @@ public class PlayerCharacter : MonoBehaviour
 
         foreach (var item in interactables)
         {
-            float dist = Vector3.Distance(item.transform.position, transform.position);
+            float dist = Vector3.Distance(item.position, transform.position);
             if(dist < previusDist)
             {
                 nearestinteractable = item;
