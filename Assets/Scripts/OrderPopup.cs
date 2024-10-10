@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class OrderPopup : MonoBehaviour
 {
+    [SerializeField] private ItemRenderer itemRenderer1, itemRenderer2;
     public void Activate(PlayerCharacter.Item item1, PlayerCharacter.Item item2)
     {
-        ItemRenderer[] itemRenderers = GetComponentsInChildren<ItemRenderer>();
-        itemRenderers[0].SetSprite(item1);
-        itemRenderers[1].SetSprite(item2);
+        itemRenderer1.SetSprite(item1);
+        itemRenderer2.SetSprite(item2);
         gameObject.SetActive(true);
     }
 

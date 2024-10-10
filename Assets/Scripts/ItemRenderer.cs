@@ -12,12 +12,12 @@ public class ItemRenderer : MonoBehaviour
     private void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-        
     }
 
     public void SetSprite(PlayerCharacter.Item spriteName)
     {
         print((int)spriteName);
+        print(sprites[(int)spriteName]);
         sprite.sprite = sprites[(int)spriteName];
     }
 }
