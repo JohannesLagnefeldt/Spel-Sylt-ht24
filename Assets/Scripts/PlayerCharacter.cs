@@ -5,26 +5,30 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
+using UnityEngine.U2D;
 
 
 public class PlayerCharacter : MonoBehaviour
 {
     public enum Item
     {
-        PASTRY,
-        PLATE,
-        CUP_EMPTY,
-        CUP_BLACK,
-        CUP_MILK,
-        CUP_SKIMMED
+        NOTHING = 0,
+        PASTRY_BAKED = 1,
+        PASTRY_UNBAKED = 2,
+        CUP_EMPTY = 3,
+        CUP_BLACK = 4,
+        CUP_MILK = 5,
+        CUP_SKIMMED= 6
     }
 
     private Rigidbody2D rigidBody;
     public Animator animator;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     private List<Interactable> interactables = new List<Interactable>();
+    private ItemRenderer[] itemRenderers; 
 
-    public List<Item> inventory = new List<Item>(2);
+    public List<Item> inventory = new List<Item>();
 
     [SerializeField] private float responseivnes;
     [SerializeField] private float speed;
@@ -35,7 +39,10 @@ public class PlayerCharacter : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
-        print (inventory.Any() != true);
+        itemRenderers = GetComponentsInChildren<ItemRenderer>();
+        inventory.Add(Item.NOTHING);
+        inventory.Add(Item.NOTHING);
+        UpdateTray();
     }
 
     // Update is called once per frame
@@ -82,6 +89,21 @@ public class PlayerCharacter : MonoBehaviour
         }
 
         return nearestinteractable;
+    }
+
+    public void UpdateTray()
+    {
+        itemRenderers[0].SetSprite(inventory[0]);
+        itemRenderers[1].SetSprite(inventory[1]);
+
+        if (inventory.Any(i => i != Item.NOTHING))
+        {
+            animator.SetBool("Carrying Tray", true);
+        }
+        else
+        {
+            animator.SetBool("Carrying Tray", false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
