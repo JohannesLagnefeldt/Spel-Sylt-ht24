@@ -16,8 +16,6 @@ public class ItemRenderer : MonoBehaviour
 
     public void SetSprite(PlayerCharacter.Item spriteName)
     {
-        print((int)spriteName);
-        print(sprites[(int)spriteName]);
         sprite.sprite = sprites[(int)spriteName];
     }
 }

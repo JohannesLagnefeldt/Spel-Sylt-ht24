@@ -47,10 +47,12 @@ public class TableOrder : Interactable
     {
         if (ordering)
         {
+            print("works");
             if ((player.inventory[0] == IntToItem(order[0]) && player.inventory[1] == IntToItem(order[1])) || (player.inventory[1] == IntToItem(order[0]) && player.inventory[0] == IntToItem(order[1])))
             {
                 orderNewT = timeToNewOrder;
                 ordering = false;
+                orderPopup.Deactivate();
             }
         }
     }
