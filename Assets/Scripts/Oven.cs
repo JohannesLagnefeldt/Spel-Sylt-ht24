@@ -6,6 +6,8 @@ public class Oven : Interactable
 {
 
     [SerializeField] private float timeToBake;
+    [SerializeField] private GameObject bakeOverlay;
+    [SerializeField] private ItemRenderer itemRenderer;
     private enum Slot {EMPTY,UNFINISHED,FINISHED}
 
     private Slot slot;
@@ -48,6 +50,20 @@ public class Oven : Interactable
         player.UpdateTray();
     }
 
+    private PlayerCharacter.Item SlotToItem(Slot slot)
+    {
+        switch (slot)
+        {
+            case Slot.UNFINISHED:
+                return PlayerCharacter.Item.PASTRY_UNBAKED;
+            case Slot.FINISHED:
+                return PlayerCharacter.Item.PASTRY_BAKED;
+            case Slot.EMPTY:
+                return PlayerCharacter.Item.NOTHING;
+        }
+        return PlayerCharacter.Item.NOTHING;
+    }
+
     private void Update()
     {
         if (slot == Slot.UNFINISHED)
@@ -59,5 +75,10 @@ public class Oven : Interactable
         {
             slot = Slot.FINISHED;
         }
+
+        itemRenderer.SetSprite(SlotToItem(slot));
+
+        bakeOverlay.transform.localScale = new Vector3 (bakeOverlay.transform.localScale.x, 4 * (bakeT / timeToBake), bakeOverlay.transform.localScale.z);
+        bakeOverlay.transform.localPosition = new Vector3 (bakeOverlay.transform.localPosition.x, -2 + (2 * (bakeT / timeToBake)), bakeOverlay.transform.localPosition.z);
     }
 }
