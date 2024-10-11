@@ -61,6 +61,7 @@ public class PlayerCharacter : MonoBehaviour
 
         if (NearestInteractable())
         {
+            interactables.ForEach(i => i.NoHighlight());
             NearestInteractable().Highlight();
             if (Input.GetButtonDown("Jump"))
             {
@@ -119,6 +120,7 @@ public class PlayerCharacter : MonoBehaviour
         if (collision.CompareTag("Interactable"))
         {
             interactables.Remove(collision.GetComponent<Interactable>());
+            collision.GetComponent<Interactable>().NoHighlight();
         }
     }
 
