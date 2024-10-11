@@ -9,10 +9,13 @@ public class UI : MonoBehaviour
 {
 
     [SerializeField] private float playTime;
+
     public int score = 0;
 
     [SerializeField] private TMP_Text ScoreText;
     [SerializeField] private TMP_Text timeText;
+    [SerializeField] private GameObject winWindow;
+    [SerializeField] private TMP_Text winText;
 
     private float time = 0f;
 
@@ -28,11 +31,25 @@ public class UI : MonoBehaviour
 
         timeText.text = Mathf.Round(time).ToString();
 
-        ScoreText.text = "Score: " + score.ToString();
+        ScoreText.text = "score: " + score.ToString();
 
         if (time <= -1)
         {
-            SceneManager.LoadScene(0);
+            GameOver();
         }
+    }
+
+    private void GameOver()
+    {
+        Time.timeScale = 0f;
+        winWindow.SetActive(true);
+        winText.text = "final score: " + score.ToString();
+    }
+
+    public void BackToMenu()
+    {
+        Time.timeScale = 1f;
+        
+        SceneManager.LoadScene(0);
     }
 }

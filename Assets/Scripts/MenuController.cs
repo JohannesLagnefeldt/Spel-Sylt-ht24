@@ -7,8 +7,14 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] private GameObject creditsPanel, tutorialPanel;
 
+    private void Start()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     public void StartGame()
     {
+        
         SceneManager.LoadScene(1);
     }
 

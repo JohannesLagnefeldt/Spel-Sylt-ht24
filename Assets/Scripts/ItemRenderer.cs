@@ -16,6 +16,10 @@ public class ItemRenderer : MonoBehaviour
 
     public void SetSprite(PlayerCharacter.Item spriteName)
     {
-        sprite.sprite = sprites[(int)spriteName];
+        if(spriteName != null)
+        {
+            sprite.sprite = sprites[(int)spriteName];
+        }
+        
     }
 }
