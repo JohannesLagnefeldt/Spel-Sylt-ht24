@@ -5,7 +5,7 @@ using UnityEngine;
 public class TableOrder : Interactable
 {
     [SerializeField] private OrderPopup orderPopup;
-
+    [SerializeField] private UI ui;
     [SerializeField] private float timeToNewOrder;
 
     private float orderNewT = 0f;
@@ -56,6 +56,7 @@ public class TableOrder : Interactable
                 player.inventory[0] = (PlayerCharacter.Item.NOTHING);
                 player.inventory[1] = (PlayerCharacter.Item.NOTHING);
                 player.UpdateTray();
+                ui.score += 100;
                 orderPopup.Deactivate();
             }
         }
