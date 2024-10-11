@@ -8,15 +8,11 @@ public class MilkMachine : Interactable
     {
         if (player.inventory[0] == PlayerCharacter.Item.CUP_BLACK)
         {
-            player.inventory[0] = PlayerCharacter.Item.CUP_BLACK;
-            print(player.inventory[0]);
-            print(player.inventory[1]);
+            player.inventory[0] = PlayerCharacter.Item.CUP_MILK;
         }
-        else if (player.inventory[1] == PlayerCharacter.Item.NOTHING)
+        else if (player.inventory[1] == PlayerCharacter.Item.CUP_BLACK)
         {
-            player.inventory[1] = PlayerCharacter.Item.CUP_BLACK;
-            print(player.inventory[0]);
-            print(player.inventory[1]);
+            player.inventory[1] = PlayerCharacter.Item.CUP_MILK;
         }
 
         player.UpdateTray();

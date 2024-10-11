@@ -8,7 +8,7 @@ public abstract class Interactable : MonoBehaviour
 
     private void Start()
     {
-        position = transform.position;
+        position = gameObject.transform.position;
     }
     public abstract void Interact(PlayerCharacter player);
 

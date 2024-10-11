@@ -20,8 +20,8 @@ public class TableOrder : Interactable
     }
     private void NewOrder()
     {
-        order[0] = Random.Range(1, 5);
-        order[1] = Random.Range(1, 5);
+        order[0] = Random.Range(1, 6);
+        order[1] = Random.Range(1, 6);
 
         orderPopup.Activate(IntToItem(order[0]), IntToItem(order[1]));
         ordering = true;
@@ -39,6 +39,8 @@ public class TableOrder : Interactable
                 return PlayerCharacter.Item.CUP_MILK;
             case 4:
                 return PlayerCharacter.Item.CUP_BLACK;
+            case 5:
+                return PlayerCharacter.Item.PASTRY_BAKED;
         }
         return PlayerCharacter.Item.NOTHING;
     }
@@ -51,6 +53,9 @@ public class TableOrder : Interactable
             {
                 orderNewT = timeToNewOrder;
                 ordering = false;
+                player.inventory[0] = (PlayerCharacter.Item.NOTHING);
+                player.inventory[1] = (PlayerCharacter.Item.NOTHING);
+                player.UpdateTray();
                 orderPopup.Deactivate();
             }
         }
