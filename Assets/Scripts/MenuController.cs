@@ -9,12 +9,12 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 1.0f;
+        
     }
 
     public void StartGame()
     {
-        
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(1);
     }
 
