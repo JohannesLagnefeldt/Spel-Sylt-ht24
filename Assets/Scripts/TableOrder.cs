@@ -15,7 +15,7 @@ public class TableOrder : Interactable
     private void Start()
     {
         ordering = false;
-        orderNewT = Random.Range(5, 15);
+        orderNewT = Random.Range(0, 20);
         orderPopup.Deactivate();
     }
     private void NewOrder()
@@ -51,7 +51,7 @@ public class TableOrder : Interactable
         {
             if ((player.inventory[0] == IntToItem(order[0]) && player.inventory[1] == IntToItem(order[1])) || (player.inventory[1] == IntToItem(order[0]) && player.inventory[0] == IntToItem(order[1])))
             {
-                orderNewT = timeToNewOrder;
+                orderNewT = timeToNewOrder + Random.Range(-2f, 2f);
                 ordering = false;
                 player.inventory[0] = (PlayerCharacter.Item.NOTHING);
                 player.inventory[1] = (PlayerCharacter.Item.NOTHING);
@@ -65,7 +65,7 @@ public class TableOrder : Interactable
     {
         if (!ordering)
         {
-            orderNewT -= Time.deltaTime * Random.Range(0.1f,1.5f);
+            orderNewT -= Time.deltaTime;
             if (orderNewT <= 0)
             {
                 NewOrder();
