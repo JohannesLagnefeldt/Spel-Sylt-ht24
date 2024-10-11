@@ -2628,7 +2628,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 825548801}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1689769095}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: BackToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &825548801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5263,8 +5275,8 @@ MonoBehaviour:
   score: 0
   ScoreText: {fileID: 922359377}
   timeText: {fileID: 2072267565}
-  winWindow: {fileID: 0}
-  winText: {fileID: 0}
+  winWindow: {fileID: 727947788}
+  winText: {fileID: 904915619}
 --- !u!114 &1689769096
 MonoBehaviour:
   m_ObjectHideFlags: 0

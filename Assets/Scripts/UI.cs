@@ -37,6 +37,11 @@ public class UI : MonoBehaviour
         {
             GameOver();
         }
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            BackToMenu();
+        }
     }
 
     private void GameOver()
