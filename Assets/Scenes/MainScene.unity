@@ -632,7 +632,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 076a8c9ddf3775c47bbb745febe2c711, type: 3}
-  m_Color: {r: 0.89433956, g: 0.88478714, b: 0.8015307, a: 1}
+  m_Color: {r: 0.79622644, g: 0.7789549, b: 0.76768243, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1022,6 +1022,7 @@ Transform:
   - {fileID: 858142060}
   - {fileID: 2023143297}
   - {fileID: 1408420610}
+  - {fileID: 1093743467}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &329084406
@@ -2604,7 +2605,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 968855761, guid: e242358260751814cadb0c3582bd8eda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2624,12 +2625,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093743464}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55.77, y: 4.65, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 21.674282, y: 0.89207935, z: 23.01336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 297153965}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1141473161
 GameObject:
@@ -3253,9 +3254,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.49, y: -1.94}
+  m_Offset: {x: -0.14, y: -3.49}
   serializedVersion: 2
-  m_Radius: 2.23
+  m_Radius: 1.42
 --- !u!61 &1497996603
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4058,7 +4059,7 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 076a8c9ddf3775c47bbb745febe2c711, type: 3}
-  m_Color: {r: 0.89433956, g: 0.88478714, b: 0.8015307, a: 1}
+  m_Color: {r: 0.79622644, g: 0.7789549, b: 0.76768243, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4721,4 +4722,3 @@ SceneRoots:
   - {fileID: 1063165143}
   - {fileID: 655801482}
   - {fileID: 297153965}
-  - {fileID: 1093743467}
