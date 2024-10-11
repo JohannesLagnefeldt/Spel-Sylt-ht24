@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TableRender : MonoBehaviour
+public class NpcRenderer : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private Transform midPoint;
@@ -16,11 +16,11 @@ public class TableRender : MonoBehaviour
     }
     private void Update()
     {
-        if(midPoint.position.y < player.transform.position.y)
+        if (midPoint.position.y < player.transform.position.y)
         {
-            foreach(SpriteRenderer spriteRenderer in spriteRenderers)
+            foreach (SpriteRenderer spriteRenderer in spriteRenderers)
             {
-                
+
                 spriteRenderer.sortingOrder = layerRelativeToOtherTables + 5;
             }
         }
