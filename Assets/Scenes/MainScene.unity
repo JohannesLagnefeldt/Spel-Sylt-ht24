@@ -5344,7 +5344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 833518c86de31f4469f86f1f1979ddc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playTime: 10
+  playTime: 200
   score: 0
   ScoreText: {fileID: 922359377}
   timeText: {fileID: 2072267565}
