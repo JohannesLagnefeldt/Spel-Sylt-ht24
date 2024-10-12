@@ -6,12 +6,12 @@ public class ItemRenderer : MonoBehaviour
 {
     
     [SerializeField] List<Sprite> sprites = new List<Sprite>();
-    private SpriteRenderer sprite;
+    [SerializeField] private SpriteRenderer sprite;
     
 
     private void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        //sprite = GetComponent<SpriteRenderer>();
     }
 
     public void SetSprite(PlayerCharacter.Item spriteName)

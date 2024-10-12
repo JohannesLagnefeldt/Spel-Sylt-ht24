@@ -33,7 +33,7 @@ public class UI : MonoBehaviour
 
         ScoreText.text = "score: " + score.ToString();
 
-        if (time <= -1)
+        if (time < 0.4f)
         {
             GameOver();
         }
